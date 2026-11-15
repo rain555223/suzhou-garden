@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>园林美景图</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <a href="./index.html" class="logo">
+                <img src="./images/logo.png" alt="" />
+            </a>
+            <ul class="fir-menu">
+                <li>
+                    <a href="./index.html">园林首页</a>
+                </li>
+                <li>
+                    <a href="./zhinan.html">园林指南</a>
+                </li>
+                <li>
+                    <a href="./jingdian.html">园内景点</a>
+                </li>
+                <li>
+                    <a href="./vr.html">VR游园</a>
+                </li>
+                <li>
+                    <a href="./zixun.html">园林资讯</a>
+                </li>
+                <li class="active">
+                    <a href="./tupian.html">园林美景图</a>
+                </li>
+                <li class="nav-message-btn">
+                    <a href="javascript:;" id="openMessageBoard">留言板</a>
+                </li>
+            </ul>
+            <div class="moblie-nav-show">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-banner">
+        <img src="./images/bg-banner.jpg">
+        <h3>园林美景图</h3>
+    </div>
+
+    <div class="route">
+        <div class="container">
+            <ul class="clearfix">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="/">园林美景图</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-photo">
+        <div class="container">
+            <h3 class="index-title center">
+                <img src="./images/title-left.png" alt="">
+                <span>园林美景图</span>
+
+            </h3>
+            <div class="item-all" id="photoContainer">
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="./index.html">园林首页</a>
+                </li>
+                <li>
+                    <a href="./zhinan.html">园林指南</a>
+                </li>
+                <li>
+                    <a href="./jingdian.html">园内景点</a>
+                </li>
+                <li>
+                    <a href="./vr.html">VR游园</a>
+                </li>
+                <li>
+                    <a href="./zixun.html">园林资讯</a>
+                </li>
+                <li>
+                    <a href="./tupian.html">园林美景图</a>
+                </li>
+            </ul>
+            <div class="cop">
+                <p>参观须提前订票，最早可于参观7日前20:00开始预订。年票观众须至少提前一日登记参观。刷身份证检票后入院参观。</p>
+            </div>
+        </div>
+    </div>
+    <!-- 图片放大遮罩层 (默认隐藏) -->
+    <div id="imageLightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+    <!-- 留言板弹窗 -->
+    <div class="message-modal" id="messageModal">
+        <div class="message-modal-content">
+            <span class="message-close" id="closeMessageBoard">&times;</span>
+            <h2>园林留言板</h2>
+            
+            <!-- 固定区域：评论输入区 -->
+            <div class="comment-input-area">
+                <textarea id="commentInput" class="one" placeholder="发布一条友善的评论" maxlength="200"></textarea>
+                <button id="submitBtn" class="two">发布</button>
+                <p class="three" id="wordCount">0/200字</p>
+            </div>
+            
+            <!-- 滚动区域：评论展示区 -->
+            <div class="comment-scroll-area">
+                <div class="comment-list" id="commentList">
+                    <!-- JS 渲染的评论会在这里 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 自定义删除确认弹窗 -->
+    <div class="confirm-modal" id="confirmModal">
+        <div class="confirm-content">
+            <h3>提示</h3>
+            <p>确定要删除这条评论吗？</p>
+            <div class="confirm-btns">
+                <button id="cancelDelete" class="btn-cancel">取消</button>
+                <button id="confirmDelete" class="btn-ok">确定</button>
+            </div>
+        </div>
+    </div>
+    <!-- 自定义轻提示 Toast -->
+    <div class="custom-toast" id="customToast">
+        <span id="toastMessage">提示信息</span>
+    </div>
+</body>
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/tupian.js"></script>
+
+</html>
