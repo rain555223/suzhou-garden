@@ -1,0 +1,82 @@
+{
+    "scenicList": [
+        {
+            "id": 1,
+            "img": "./images/exhibit-img1.jpg",
+            "title": "拙政园",
+            "address": "地址：江苏省苏州市姑苏区东北街178号",
+            "visitors": "137943"
+        },
+        {
+            "id": 2,
+            "img": "./images/exhibit-img2.jpg",
+            "title": "狮子林",
+            "address": "地址：江苏省苏州市姑苏区东北街178号",
+            "visitors": "143176"
+        },
+        {
+            "id": 3,
+            "img": "./images/exhibit-img4.jpg",
+            "title": "虎丘",
+            "address": "地址：江苏省苏州市姑苏区东北街178号",
+            "visitors": "154613"
+        },
+        {
+            "id": 4,
+            "img": "./images/exhibit-img3.jpg",
+            "title": "留园",
+            "address": "地址：江苏省苏州市姑苏区东北街178号",
+            "visitors": "123654"
+        },
+        {
+            "id": 5,
+            "img": "./images/exhibit-img5.jpg",
+            "title": "网师园",
+            "address": "地址：江苏省苏州市姑苏区东北街178号",
+            "visitors": "193453"
+        },
+        {
+            "id": 6,
+            "img": "./images/exhibit-img6.jpg",
+            "title": "耦园",
+            "address": "地址：江苏省苏州市姑苏区东北街178号",
+            "visitors": "178546"
+        },
+        {
+            "id": 7,
+            "img": "./images/exhibit-img7.jpg",
+            "title": "上方山国家森林公园（植物园）",
+            "address": "地址：江苏省-苏州市-虎丘区",
+            "visitors": "127864"
+        },
+        {
+            "id": 8,
+            "img": "./images/exhibit-img8.png",
+            "title": "上方山森林动物世界",
+            "address": "地址：江苏省-苏州市-虎丘区",
+            "visitors": "152765"
+        }
+    ],
+    "popularList": [
+        {
+            "id": 1,
+            "img": "./images/exhibit-yzcl1.jpg",
+            "title": "明轩实样"
+        },
+        {
+            "id": 2,
+            "img": "./images/exhibit-yzcl2.png",
+            "title": "后乐园"
+        },
+        {
+            "id": 3,
+            "img": "./images/exhibit-yzcl3.jpg",
+            "title": "道勤小筑"
+        },
+        {
+            "id": 4,
+            "img": "./images/exhibit-yzcl4.jpg",
+            "title": "嘉树堂"
+        }
+    ]
+}
