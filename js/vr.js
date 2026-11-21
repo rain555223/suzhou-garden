@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function initVR() {
     try {
-        const response = await fetch('https://m1.apifoxmock.com/m1/9046970-8859816-default/api/vr');
+        const response = await fetch('./data/vr.json');
         if (!response.ok) throw new Error('网络请求失败');
         const data = await response.json();
 

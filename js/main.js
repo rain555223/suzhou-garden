@@ -13,7 +13,8 @@ async function initPage() {
             </div>
         `;
         // 发起请求
-        const response = await fetch('https://m1.apifoxmock.com/m1/9046970-8859816-default/api/index');
+                // 发起请求
+        const response = await fetch('./data/index.json');
         if (!response.ok) throw new Error('网络请求失败');
         const data = await response.json();
 
@@ -185,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const customToast = document.getElementById('customToast');
     const toastMessage = document.getElementById('toastMessage');
 
-    const MOCK_API = 'https://m1.apifoxmock.com/m1/9046970-8859816-default/api/comments'; 
+
 
     let commentsData = [];
     let toastTimer = null;
@@ -279,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderComments();
         } else {
             try {
-                const res = await fetch(MOCK_API);
+                const res = await fetch('./data/comments.json');
                 const json = await res.json();
                 commentsData = json.data || []; 
                 
