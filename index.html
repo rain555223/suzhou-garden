@@ -232,12 +232,29 @@
         <div class="modal-content">
             <span class="close-btn">&times;</span>
             <h2>苏州园林景区票价详情</h2>
-            <ul class="price-list">
-                <li><span>成人票：</span> <strong>￥80</strong> /人</li>
-                <li><span>学生票：</span> <strong>￥40</strong> /人 <small>（凭有效学生证）</small></li>
-                <li><span>儿童票：</span> <strong>￥20</strong> /人 <small>（1.2米-1.5米儿童）</small></li>
-                <li class="discount"><span>节假日优惠：</span> <strong>全场 8 折</strong>（法定节假日期间）</li>
-            </ul>
+            
+            <!-- 换成表格结构 -->
+            <table class="price-table">
+                <tbody>
+                    <tr>
+                        <td>成人票</td>
+                        <td><span class="price-val">￥80</span> /人</td>
+                    </tr>
+                    <tr>
+                        <td>学生票</td>
+                        <td><span class="price-val">￥40</span> /人 <small>（凭有效学生证）</small></td>
+                    </tr>
+                    <tr>
+                        <td>儿童票</td>
+                        <td><span class="price-val">￥20</span> /人 <small>（1.2米-1.5米儿童）</small></td>
+                    </tr>
+                    <tr class="discount-row">
+                        <td>节假日优惠</td>
+                        <td><span class="price-val">全场 8 折</span> <small>（法定节假日期间）</small></td>
+                    </tr>
+                </tbody>
+            </table>
+            
             <p class="tip">* 1.2米以下儿童及70岁以上老人凭有效证件免票。</p>
             <div class="modal-footer">
                 <button id="closeBtn" class="btn">我知道了</button>

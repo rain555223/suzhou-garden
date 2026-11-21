@@ -1111,68 +1111,113 @@
     display: none;
 }
 
-/* 弹窗遮罩层（全屏半透明黑底） */
 .modal {
-    display: none; /* 默认隐藏 */
+    display: none; 
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    background-color: rgba(0, 0, 0, 0.6); /* 加深透明度，让背景更灰暗，突出弹窗 */
     z-index: 9999;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(3px); /* 加分项：背景模糊效果，更有高级感 */
 }
 
-/* 弹窗内容盒子 */
+/* 2. 弹窗主体容器 */
 .modal-content {
-    background-color: #fff;
-    width: 480px; 
-    padding: 40px; 
+    /* 使用白色，透明度设为 0.65 (数字越小越透明) */
+    background-color: #ffffff; 
+    
+    /* 必须加上毛玻璃效果，否则背景太花会看不清字 */
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* 兼容 Safari */
+    
+    width: 680px; 
+    padding: 40px 50px; 
     border-radius: 12px;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    /* 边框加一点淡淡的白边，增加质感 */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     animation: fadeIn 0.3s ease;
 }
-/* 标题和列表样式 */
+
+/* 2. 标题样式（字号放大） */
 .modal-content h2 {
     margin-top: 0;
     color: #333;
-    font-size: 22px;
+    /* 标题字号从 22px 增大到 26px */
+    font-size: 26px; 
     text-align: center;
-    border-bottom: 2px solid #1e88e5;
-    padding-bottom: 15px;
-    margin-bottom: 25px;
-}
-.price-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 25px 0;
-}
-.price-list li {
-    padding: 15px 10px; 
-    border-bottom: 1px dashed #e0e0e0;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-}
-.price-list li strong {
-    color: #e53935;
-    font-size: 20px;
-    margin: 0 5px;
-}
-.price-list .discount strong {
-    color: #ff9800;
-}
-.price-list small {
-    color: #888;
-    margin-left: 10px;
-}
-.tip {
-    font-size: 13px;
-    color: #999;
-    line-height: 1.6;
-    margin-bottom: 25px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 18px; 
+    margin-bottom: 25px; 
 }
 
+/* 3. 表格全局样式（字体放大） */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px; 
+    /* 表格基础字号从 16px 增大到 18px */
+    font-size: 18px; 
+}
+
+/* 表格行样式（增加行高） */
+.price-table td {
+    padding: 18px 15px; 
+    /* 将原本的 #e0e0e0 改为黑色，0.2 的透明度让它看起来不那么刺眼，更像正规表格 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
+    transition: all 0.3s ease;
+}
+
+/* 第一列（票种） */
+.price-table td:first-child {
+    font-weight: bold;
+    color: #333;
+    width: 30%;
+}
+
+/* 鼠标悬停动效 */
+.price-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.price-table tbody tr:hover {
+    background-color: #f5f7fa; 
+    transform: scale(1.02) translateX(5px); 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+    border-radius: 6px; 
+}
+
+/* 价格数字样式（数字放大加粗） */
+.price-table .price-val {
+    color: #333; /* 改为黑色 */
+    font-size: 22px; 
+    font-weight: bold; /* 已经是加粗了 */
+    margin-left: 8px;
+}
+
+.price-table tr.discount-row .price-val {
+    color: #333;
+    font-weight: bold;
+}
+
+/* 括号里的备注小字稍微放大一点 */
+.price-table td small {
+    font-size: 15px;
+    color: #666;
+    margin-left: 5px;
+}
+
+/* 4. 底部备注说明 */
+.tip {
+    /* 底部提示文字从 13px 增大到 15px */
+    font-size: 15px; 
+    color: #999;
+    margin-top: 10px; 
+    margin-bottom: 25px; 
+    text-align: center;
+}
 /* 关闭按钮（右上角的 X） */
 .close-btn {
     position: absolute;
@@ -1191,23 +1236,24 @@
 /* 底部按钮 */
 .modal-footer {
     text-align: center;
-    margin-top: 10px;
 }
 
-/* 按钮样式 */
 .modal-footer .btn {
     background-color: #990000;
     color: white;
     border: none;
-    padding: 12px 45px; 
+    /* 按钮 padding 变大，字号变大 */
+    padding: 14px 60px; 
     border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
+    font-size: 18px; 
+    transition: all 0.3s;
 }
 
 .modal-footer .btn:hover {
     background-color: #cc0000;
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 10px rgba(204, 0, 0, 0.3);
 }
 
 /* ================= 图片灯箱效果 ================= */
@@ -1254,21 +1300,35 @@
     display: none; /* 默认隐藏 */
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    
+    /* 1. 这里控制外围遮罩的颜色和透明度 (0.4 表示 40% 的黑色) */
+    background-color: rgba(0, 0, 0, 0.4); 
+    
+    /* 2. 核心：让遮罩层背后的网页产生毛玻璃模糊效果 */
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px); /* 兼容苹果 Safari 浏览器 */
+    
     z-index: 9999;
     justify-content: center;
     align-items: center;
 }
 .message-modal-content {
     background: #fff;
-    width: 600px; 
-    max-height: 85vh;
-    padding: 25px 35px;
+    /* 1. 增加宽度：从 500px 增加到 650px（可根据你的审美微调） */
+    width: 650px; 
+    
+    /* 2. 增加高度：将最大高度从 80vh 调整到 85vh（占屏幕高度的 85%） */
+    max-height: 85vh; 
+    
+    /* 3. 增加内边距：让内部元素离边缘远一点，显得不拥挤 */
+    padding: 30px 40px; 
+    
     border-radius: 12px;
     position: relative;
     display: flex;
     flex-direction: column;
     overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 .message-close {
     position: absolute;
@@ -1306,25 +1366,29 @@
 }
 .one {
     width: calc(100% - 65px);
-    height: 50px; 
+    /* 固定高度，不再变化 */
+    height: 60px; 
     border-radius: 10px; 
     border: 1px solid #ccc;
     padding: 10px; 
-    transition: all 0.3s; 
+    transition: border-color 0.3s; /* 只保留边框颜色的过渡 */
     outline: none; 
     resize: none;
     vertical-align: top;
 }
-.one:focus { height: 100px; border-color: #990000; }
+.one:focus {
+    border-color: #990000; 
+}
 .two {
-    width: 50px; 
-    height: 50px; 
-    background: pink; 
-    border: none;
+    width: 60px; /* 宽度稍微给大一点，因为文字是竖排的 */
+    /* 固定高度 */
+    height: 60px; 
+    background: pink; /* 你截图里的粉色 */
+    border: none; 
     border-radius: 10px;
     cursor: pointer; 
-    transition: all 0.3s; /* 加上平滑过渡 */
-    color: #333; /* 文字颜色 */
+    transition: all 0.3s; 
+    color: #333; 
     float: right;
 }
 
@@ -1339,7 +1403,7 @@
 .two:active {
     transform: scale(0.95);
 }
-.one:focus + .two { height: 100px; } /* 输入框变高，按钮跟着变高 */
+
 .three {
     position: absolute; bottom: -20px; right: 0;
     font-size: 12px; color: gray; opacity: 0; transition: all 0.3s;
@@ -1491,6 +1555,7 @@
     display: block;
     opacity: 1;
 }
+
 /* 放大弹出的动画 */
 @keyframes zoomIn {
     from { transform: scale(0.8); opacity: 0; }
