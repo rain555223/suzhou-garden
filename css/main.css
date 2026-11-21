@@ -237,10 +237,16 @@
 
 #index-banner {
     font-size: 0;
+    min-height: 450px; 
+    background-color: #f0f0f0
 }
-
+#index-banner .swiper-container {
+    height: 450px; 
+}
 #index-banner .box-img img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #index-banner .swiper-pagination-bullet {
@@ -1115,37 +1121,29 @@
     display: none; 
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* 加深透明度，让背景更灰暗，突出弹窗 */
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 9999;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(3px); /* 加分项：背景模糊效果，更有高级感 */
+    backdrop-filter: blur(3px);
 }
 
-/* 2. 弹窗主体容器 */
 .modal-content {
-    /* 使用白色，透明度设为 0.65 (数字越小越透明) */
     background-color: #ffffff; 
-    
-    /* 必须加上毛玻璃效果，否则背景太花会看不清字 */
     backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px); /* 兼容 Safari */
+    -webkit-backdrop-filter: blur(12px);
     
     width: 680px; 
     padding: 40px 50px; 
     border-radius: 12px;
     position: relative;
-    /* 边框加一点淡淡的白边，增加质感 */
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     animation: fadeIn 0.3s ease;
 }
-
-/* 2. 标题样式（字号放大） */
 .modal-content h2 {
     margin-top: 0;
     color: #333;
-    /* 标题字号从 22px 增大到 26px */
     font-size: 26px; 
     text-align: center;
     border-bottom: 2px solid #000;
@@ -1153,31 +1151,25 @@
     margin-bottom: 25px; 
 }
 
-/* 3. 表格全局样式（字体放大） */
 .price-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 25px; 
-    /* 表格基础字号从 16px 增大到 18px */
     font-size: 18px; 
 }
 
-/* 表格行样式（增加行高） */
 .price-table td {
     padding: 18px 15px; 
-    /* 将原本的 #e0e0e0 改为黑色，0.2 的透明度让它看起来不那么刺眼，更像正规表格 */
     border-bottom: 1px solid rgba(0, 0, 0, 0.2); 
     transition: all 0.3s ease;
 }
 
-/* 第一列（票种） */
 .price-table td:first-child {
     font-weight: bold;
     color: #333;
     width: 30%;
 }
 
-/* 鼠标悬停动效 */
 .price-table tbody tr {
     transition: all 0.3s ease;
 }
@@ -1189,11 +1181,10 @@
     border-radius: 6px; 
 }
 
-/* 价格数字样式（数字放大加粗） */
 .price-table .price-val {
-    color: #333; /* 改为黑色 */
+    color: #333;
     font-size: 22px; 
-    font-weight: bold; /* 已经是加粗了 */
+    font-weight: bold;
     margin-left: 8px;
 }
 
@@ -1202,23 +1193,19 @@
     font-weight: bold;
 }
 
-/* 括号里的备注小字稍微放大一点 */
 .price-table td small {
     font-size: 15px;
     color: #666;
     margin-left: 5px;
 }
 
-/* 4. 底部备注说明 */
 .tip {
-    /* 底部提示文字从 13px 增大到 15px */
     font-size: 15px; 
     color: #999;
     margin-top: 10px; 
     margin-bottom: 25px; 
     text-align: center;
 }
-/* 关闭按钮（右上角的 X） */
 .close-btn {
     position: absolute;
     top: 20px;
@@ -1233,7 +1220,6 @@
     transform: rotate(90deg);
 }
 
-/* 底部按钮 */
 .modal-footer {
     text-align: center;
 }
@@ -1242,7 +1228,6 @@
     background-color: #990000;
     color: white;
     border: none;
-    /* 按钮 padding 变大，字号变大 */
     padding: 14px 60px; 
     border-radius: 6px;
     cursor: pointer;
@@ -1256,31 +1241,29 @@
     box-shadow: 0 4px 10px rgba(204, 0, 0, 0.3);
 }
 
-/* ================= 图片灯箱效果 ================= */
 .lightbox {
-    display: none; /* 默认隐藏 */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.85); /* 半透明黑色遮罩，图片外部分变透明 */
-    z-index: 9999; /* 层级最高，覆盖所有内容 */
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
 }
 
-/* 放大后的图片 */
 .lightbox img {
-    height: 70vh; /* 统一高度为屏幕高度的 70% */
-    width: auto;  /* 宽度自动 */
-    max-width: 95vw; /* 防止某些全景图太宽导致溢出屏幕 */
-    object-fit: contain; /* 确保图片完整显示 */
+    height: 70vh;
+    width: auto;
+    max-width: 95vw;
+    object-fit: contain;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
     animation: zoomIn 0.3s ease; 
-    background-color: #fff; /* 如果图片有透明背景，给个白底 */
+    background-color: #fff;
 }
-/* 右上角关闭按钮 */
+
 .lightbox-close {
     position: absolute;
     top: 20px;
@@ -1295,18 +1278,14 @@
 .lightbox-close:hover {
     color: #ccc;
 }
-/* 留言板弹窗遮罩 */
+
 .message-modal {
-    display: none; /* 默认隐藏 */
+    display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* 1. 这里控制外围遮罩的颜色和透明度 (0.4 表示 40% 的黑色) */
     background-color: rgba(0, 0, 0, 0.4); 
-    
-    /* 2. 核心：让遮罩层背后的网页产生毛玻璃模糊效果 */
     backdrop-filter: blur(5px); 
-    -webkit-backdrop-filter: blur(5px); /* 兼容苹果 Safari 浏览器 */
+    -webkit-backdrop-filter: blur(5px);
     
     z-index: 9999;
     justify-content: center;
@@ -1314,15 +1293,9 @@
 }
 .message-modal-content {
     background: #fff;
-    /* 1. 增加宽度：从 500px 增加到 650px（可根据你的审美微调） */
     width: 650px; 
-    
-    /* 2. 增加高度：将最大高度从 80vh 调整到 85vh（占屏幕高度的 85%） */
     max-height: 85vh; 
-    
-    /* 3. 增加内边距：让内部元素离边缘远一点，显得不拥挤 */
     padding: 30px 40px; 
-    
     border-radius: 12px;
     position: relative;
     display: flex;
@@ -1340,11 +1313,10 @@
     text-align: center; color: #990000; margin-bottom: 20px;
 }
 
-/* 输入区样式 (结合你的代码) */
 .comment-input-area { 
     position: relative; 
     margin-bottom: 20px; 
-    flex-shrink: 0; /* 防止输入框被挤压 */
+    flex-shrink: 0;
 }
 .comment-scroll-area {
     height: 420px; 
@@ -1353,7 +1325,6 @@
     scrollbar-width: thin;
 }
 
-/* 自定义滚动条 (Webkit浏览器) */
 .comment-scroll-area::-webkit-scrollbar {
     width: 6px;
 }
@@ -1366,12 +1337,11 @@
 }
 .one {
     width: calc(100% - 65px);
-    /* 固定高度，不再变化 */
     height: 60px; 
     border-radius: 10px; 
     border: 1px solid #ccc;
     padding: 10px; 
-    transition: border-color 0.3s; /* 只保留边框颜色的过渡 */
+    transition: border-color 0.3s;
     outline: none; 
     resize: none;
     vertical-align: top;
@@ -1380,10 +1350,9 @@
     border-color: #990000; 
 }
 .two {
-    width: 60px; /* 宽度稍微给大一点，因为文字是竖排的 */
-    /* 固定高度 */
+    width: 60px;
     height: 60px; 
-    background: pink; /* 你截图里的粉色 */
+    background: pink;
     border: none; 
     border-radius: 10px;
     cursor: pointer; 
@@ -1392,14 +1361,12 @@
     float: right;
 }
 
-/* 鼠标悬停时的高亮效果 */
 .two:hover {
-    background: #ff6b81; /* 变红 */
-    color: #fff; /* 文字变白 */
-    box-shadow: 0 4px 10px rgba(153, 0, 0, 0.3); /* 加个阴影显得更有立体感 */
+    background: #ff6b81;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(153, 0, 0, 0.3);
 }
 
-/* 鼠标按下时稍微缩小一点，增加点击反馈 */
 .two:active {
     transform: scale(0.95);
 }
@@ -1410,7 +1377,6 @@
 }
 .one:focus ~ .three { opacity: 1; }
 
-/* 评论展示区 */
 .comment-list { margin-top: 10px; }
 .comment-item {
     border-bottom: 1px solid #eee;
@@ -1427,17 +1393,16 @@
 }
 .comment-actions {
     display: flex;
-    align-items: center; /* 让里面的心形和垃圾桶垂直居中对齐 */
-    gap: 15px; /* 两个图标之间的间距 */
+    align-items: center;
+    gap: 15px;
     margin-left: 15px;
-    /* 保证它沉底，和左侧的“时间”在同一水平线上 */
     padding-bottom: 2px; 
 }
-/* 图标通用样式 */
+
 .action-icon {
     cursor: pointer;
     font-size: 18px;
-    color: #999; /* 默认灰色 */
+    color: #999;
     transition: all 0.2s ease;
     user-select: none;
 }
@@ -1448,11 +1413,9 @@
     transition: all 0.2s ease;
     user-select: none;
 }
-/* 点赞图标 */
 .action-icon.like-btn:hover { color: #ff4757; }
-.action-icon.like-btn.liked { color: #ff4757; } /* 点赞后变红 */
+.action-icon.like-btn.liked { color: #ff4757; }
 
-/* 删除图标（图片） */
 .action-icon.delete-btn-img {
     width: 18px; 
     height: 18px;
@@ -1461,24 +1424,22 @@
     transition: opacity 0.2s;
 }
 .action-icon.delete-btn-img:hover {
-    opacity: 1; /* 鼠标放上去变清晰 */
+    opacity: 1;
 }
 .comment-user { color: pink; font-size: 14px; font-weight: bold; }
 .comment-text { font-size: 16px; margin: 8px 0; color: #333; }
 .comment-time { font-size: 12px; color: #999; }
 
-/* 自定义确认弹窗（全屏遮罩） */
 .confirm-modal {
-    display: none; /* 默认隐藏 */
+    display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* 稍微浅一点的遮罩 */
-    z-index: 10000; /* 必须比留言板的 9999 高，防止被挡住 */
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10000;
     justify-content: center;
     align-items: center;
 }
 
-/* 确认弹窗内容框 */
 .confirm-content {
     background: #fff;
     width: 300px;
@@ -1501,14 +1462,12 @@
     margin-bottom: 20px;
 }
 
-/* 按钮容器 */
 .confirm-btns {
     display: flex;
     justify-content: space-between;
     gap: 10px;
 }
 
-/* 按钮通用样式 */
 .confirm-btns button {
     flex: 1;
     padding: 8px 0;
@@ -1519,50 +1478,44 @@
     transition: background 0.3s;
 }
 
-/* 取消按钮 */
 .btn-cancel {
     background: #f1f2f6;
     color: #333;
 }
 .btn-cancel:hover { background: #dfe4ea; }
 
-/* 确定按钮（红色警示） */
 .btn-ok {
     background: #ff4757;
     color: #fff;
 }
 .btn-ok:hover { background: #ff6b81; }
-/* 自定义轻提示 */
 .custom-toast {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* 绝对居中 */
-    background: rgba(0, 0, 0, 0.75); /* 深色半透明背景 */
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.75);
     color: #fff;
     padding: 12px 24px;
     border-radius: 8px;
     font-size: 15px;
-    z-index: 99999; /* 层级最高，盖住所有弹窗 */
-    display: none; /* 默认隐藏 */
+    z-index: 99999;
+    display: none;
     opacity: 0;
     transition: opacity 0.3s ease;
-    pointer-events: none; /* 防止遮挡鼠标点击 */
+    pointer-events: none;
 }
 
-/* 显示时的类名 */
 .custom-toast.show {
     display: block;
     opacity: 1;
 }
 
-/* 放大弹出的动画 */
 @keyframes zoomIn {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
 
-/* 动画 */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }

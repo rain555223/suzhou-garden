@@ -1,10 +1,9 @@
 // 统一入口
 document.addEventListener('DOMContentLoaded', () => {
     initPage();
-    initModal(); // 你原来的弹窗逻辑
+    initModal();
 });
 
-// 1. 抓取数据并渲染
 async function initPage() {
     try {
         document.querySelector('.swiper-wrapper').innerHTML = `
@@ -12,8 +11,7 @@ async function initPage() {
                 <div class="loading-spinner">加载中...</div>
             </div>
         `;
-        // 发起请求
-                // 发起请求
+
         const response = await fetch('./data/index.json');
         if (!response.ok) throw new Error('网络请求失败');
         const data = await response.json();
@@ -31,8 +29,6 @@ async function initPage() {
         console.error('获取数据失败:', error);
     }
 }
-
-// ================= 渲染函数 =================
 
 // 渲染轮播图
 function renderBanner(banners) {
@@ -114,15 +110,19 @@ function renderNews(newsList) {
     document.querySelector('#index-news .item-all > .right').innerHTML = str;
 }
 
-// ================= 其他初始化逻辑 =================
-
 // 初始化 Swiper
 function initSwiper() {
     new Swiper('#index-banner .swiper-container', {
+        // 开启预加载下一张图
+        preloadImages: false, // 如果图片很大，可以设为 false
+        lazy: {
+            loadPrevNext: true, // 提前加载前后两张图
+        },
         autoplay: { delay: 4000 },
         speed: 1000,
-        autoHeight: true,
         loop: true,
+        // 关闭 autoHeight，防止它再次计算高度导致闪烁
+        autoHeight: false, 
         navigation: {
             nextEl: '#index-banner .swiper-button-next',
             prevEl: '#index-banner .swiper-button-prev',
@@ -132,11 +132,8 @@ function initSwiper() {
             clickable: true
         }
     });
-
-    // 如果有其他轮播图，也放在这里...
 }
 
-// 你原本的票价弹窗逻辑
 function initModal() {
     // 阻止 a 标签默认行为
     document.querySelectorAll('.item-all .item').forEach(item => {
@@ -371,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 启动加载
     initData();
 });
-// 移动端导航栏切换 (你原本的jQuery代码)
+// 移动端导航栏切换
 $(function () {
     $('#header .moblie-nav-show').click(function () {
         $('#header .fir-menu').slideToggle('300');

@@ -21,7 +21,7 @@ async function initTupian() {
 function renderPhotoGroups(groups) {
     let str = '';
     
-    // 1. 外层循环：遍历每一行 (style3s, style2s, style4s...)
+    // 1. 外层循环：遍历每一行
     groups.forEach(group => {
         
         // 开始拼这一行的外层 div，并绑定对应的类名
